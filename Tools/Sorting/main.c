@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
-#define N 10
-#define K 10
+#define N 10 // количество элементов массива
+#define K 10 // элементы будут генерироваться в диапазоне от 0 до К
 
 void gen(int a[], int n);
 void output(int a[], int n);
@@ -19,11 +19,11 @@ void main() {
     gen(a, N);
     printf("Исходный массив:        ");
     output(a, N);
-    printf("Алгоритм сортировки:       ");
-    scanf("%d", &algo);
-    switch (algo) {
-    case 1:
-        choosing_sort(a, N);
+    printf("Алгоритм сортировки:       "); // ДОСТУПНЫЕ АЛГОРИТМЫ:
+    scanf("%d", &algo);                    // 1 - сортировка выбором
+    switch (algo) {                        // 2 - сортировка простыми вставками
+    case 1:                                // 3 - пузырьковая сортировка
+        choosing_sort(a, N);               // 4 - сортировка подсчетом
         break;
     case 2:
         insert_sort(a, N);
@@ -42,14 +42,16 @@ void main() {
     output(a, N);
 }
 
+// Генерация массива
 void gen(int a[], int n) {
     int i;
     srand((unsigned)time(0));
     for (i = 0; i < n; i++) {
-        a[i] = rand() % (5 - 0 + 1) + 0;
+        a[i] = rand() % (K - 0 + 1) + 0;
     }
 }
 
+// Вывод массива
 void output(int a[], int n) {
     int i;
     for (i = 0; i < n - 1; i++) {
@@ -58,6 +60,7 @@ void output(int a[], int n) {
     printf("%4d\n", a[n - 1]);
 }
 
+// Сортировка выбором
 void choosing_sort(int a[], int n)
 {
     int i, j, min, minidx;
@@ -75,6 +78,7 @@ void choosing_sort(int a[], int n)
     }
 }
 
+// Сортировка простыми вставками
 void insert_sort(int a[], int n)
 {
     int i, j, temp;
@@ -88,6 +92,7 @@ void insert_sort(int a[], int n)
     }
 }
 
+// Пузырьковая сортировка
 void bubble_sort(int a[], int n)
 {
     int i, j, temp;
@@ -102,6 +107,7 @@ void bubble_sort(int a[], int n)
     }
 }
 
+// Сортировка подсчетом
 void counting_sort(int a[], int n)
 {
     int count[K] = { 0 };
