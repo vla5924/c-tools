@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
@@ -17,9 +17,9 @@ void main() {
     int a[N], algo;
     setlocale(LC_ALL, "Russian");
     gen(a, N);
-    printf("Исходный массив:        ");
+    printf("РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ:        ");
     output(a, N);
-    printf("Алгоритм сортировки:       ");
+    printf("РђР»РіРѕСЂРёС‚Рј СЃРѕСЂС‚РёСЂРѕРІРєРё:       ");
     scanf("%d", &algo);
     switch (algo) {
     case 1:
@@ -35,10 +35,10 @@ void main() {
         counting_sort(a, N);
         break;
     default:
-        printf("Неверный номер.\n");
+        printf("РќРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ.\n");
         return;
     }
-    printf("Отсортированный массив: ");
+    printf("РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ: ");
     output(a, N);
 }
 
